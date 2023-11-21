@@ -20,15 +20,15 @@ namespace Attendence_Leave.Controllers
         }
 
         [HttpPost]
-        public ActionResult EmployeeLogin(EmployeeLogin model)
+        public ActionResult EmployeeLogin(Employee model)
         {
             if (ModelState.IsValid)
             {
                 // Validate employee credentials against the database
-                if (IsValidEmployee(model.Username, model.Password))
+                if (IsValidEmployee(model.FullName, model.password))
                 {
                     // Redirect to the employee dashboard or another page
-                    return RedirectToAction("EmployeeDashboard");
+                    return RedirectToAction("EmployeeDashboard",model);
                 }
                 else
                 {
@@ -41,9 +41,21 @@ namespace Attendence_Leave.Controllers
 
         // Employee dashboard or landing page after login
 
-        public ActionResult EmployeeDashboard()
+        public ActionResult EmployeeDashboard(Employee model)
         {
-            return View();
+            ProjectContext db = new ProjectContext();
+            
+                // Assuming you have a table named Employee with columns Username and Password
+               var employee = db.Employees.Find(model.EmployeeID);
+               //if (employee != null)
+               //{
+                return View(employee);
+               //}
+               //else
+               //{
+               // return RedirectToAction("EmployeeLogin");
+               //}
+          
            
         }
 
@@ -52,10 +64,10 @@ namespace Attendence_Leave.Controllers
         // Helper method to validate employee credentials
         private bool IsValidEmployee(string username, string password)
         {
-            using (LoginEnity db = new LoginEnity())
+            using (ProjectContext db = new ProjectContext())
             {
                 // Assuming you have a table named Employee with columns Username and Password
-                var employee = db.EmployeeLogins.FirstOrDefault(e => e.Username == username && e.Password == password);
+                var employee = db.Employees.FirstOrDefault(e => e.FullName== username && e.password == password);
                 return employee != null;
             }
         }

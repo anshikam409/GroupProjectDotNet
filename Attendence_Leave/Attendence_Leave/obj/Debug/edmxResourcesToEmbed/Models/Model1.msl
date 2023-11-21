@@ -1,29 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="AttendenceLeavemanagementModelStoreContainer" CdmEntityContainer="loginEntity">
-    <EntitySetMapping Name="EmployeeLogins">
-      <EntityTypeMapping TypeName="AttendenceLeavemanagementModel.EmployeeLogin">
-        <MappingFragment StoreEntitySet="EmployeeLogin">
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="employeeStatus" ColumnName="employeeStatus" />
-          <ScalarProperty Name="Grade" ColumnName="Grade" />
-          <ScalarProperty Name="Manager" ColumnName="Manager" />
-          <ScalarProperty Name="Designation" ColumnName="Designation" />
-          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-          <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+  <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectContext">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ProjectModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="EmailID" ColumnName="EmailID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Managers">
-      <EntityTypeMapping TypeName="AttendenceLeavemanagementModel.Manager">
-        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+          <ScalarProperty Name="WorkLocation" ColumnName="WorkLocation" />
           <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

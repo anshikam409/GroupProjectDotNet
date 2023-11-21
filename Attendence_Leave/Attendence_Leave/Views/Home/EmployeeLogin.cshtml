@@ -1,4 +1,4 @@
-﻿@model Attendence_Leave.Models.EmployeeLogin
+﻿@model Attendence_Leave.Models.Employee
 
 @{
     ViewBag.Title = "Employee Login";
@@ -76,12 +76,12 @@
 
         <form>
             <label for="Username">Username</label>
-            @Html.TextBoxFor(model => model.Username)
-            @Html.ValidationMessageFor(model => model.Username)
+            @Html.TextBoxFor(model => model.FullName)
+            @Html.ValidationMessageFor(model => model.FullName)
 
             <label for="Password">Password</label>
-            @Html.PasswordFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
+            @Html.PasswordFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
 
             <button type="submit">Login</button>
 

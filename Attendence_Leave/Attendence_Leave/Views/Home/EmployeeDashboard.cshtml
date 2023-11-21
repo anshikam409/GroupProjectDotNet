@@ -1,7 +1,9 @@
-﻿@model Attendence_Leave.Models.EmployeeLogin
+﻿@model Attendence_Leave.Models.Employee
 
 @{
     ViewBag.Title = "EmployeeDashboard";
+
+
 }
 
 <!DOCTYPE html>
@@ -59,19 +61,22 @@
 </head>
 <body>
     <h2>Welcome </h2>
+    <p>
+        <div>@Model.EmployeeID</div>
+        <div>@Model.FullName</div>
+    </p>
+    
+        <div class="dashboard-container">
 
-    <div class="dashboard-container">
-      
+            <div class="action-buttons">
+                <a href="@Url.Action("Timesheet", "Home")" class="action-button">
+                    My Timesheet
+                </a>
 
-        <div class="action-buttons">
-            <a href="@Url.Action("Timesheet", "Home")" class="action-button">
-                My Timesheet
-            </a>
-
-            <a href="@Url.Action("Leave", "Home")" class="action-button">
-                Leave
-            </a>
+                <a href="@Url.Action("Leave", "Home")" class="action-button">
+                    Leave
+                </a>
+            </div>
         </div>
-    </div>
 </body>
 </html>

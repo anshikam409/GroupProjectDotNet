@@ -166,27 +166,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeLogin.cs">
-      <DependentUpon>loginin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\loginin.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>loginin.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\loginin.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>loginin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\loginin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>loginin.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Manager.cs">
-      <DependentUpon>loginin.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AttedenceClass.cs" />
+    <Compile Include="Models\LeavesClass.cs" />
+    <Compile Include="Models\Employeeclass.cs" />
+    <Compile Include="Models\LeavesCredit.cs" />
+    <Compile Include="Models\ModelsContext.cs" />
+    <Compile Include="Models\ProjectClass.cs" />
+    <Compile Include="Models\Worksonclass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,16 +184,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\loginin.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>loginin.edmx</DependentUpon>
-      <LastGenOutput>loginin.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\loginin.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>loginin.edmx</DependentUpon>
-      <LastGenOutput>loginin.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -229,13 +205,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\loginin.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>loginin.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\loginin.edmx.diagram">
-      <DependentUpon>loginin.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
