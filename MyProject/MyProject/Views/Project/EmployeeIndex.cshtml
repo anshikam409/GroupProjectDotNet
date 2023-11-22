@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MyProject.Models.EmployeeDetails>
+
+@{
+    ViewBag.Title = "EmployeeIndex";
+}
+
+<h2>EmployeeIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "EmployeeCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employeename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employeename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EmployeeEdit", new { id=item.EmpID }) |
+            @Html.ActionLink("Details", "EmployeeDisplay", new { id=item.EmpID }) |
+            @Html.ActionLink("Delete", "EmployeeDelete", new { id=item.EmpID })
+        </td>
+    </tr>
+}
+
+</table>
