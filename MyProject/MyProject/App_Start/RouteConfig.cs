@@ -16,7 +16,11 @@ namespace MyProject
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+<<<<<<< HEAD
+                defaults: new { controller = "Project", action = "Index", id = UrlParameter.Optional }
+=======
                 defaults: new { controller = "ProjectController", action = "Index", id = UrlParameter.Optional }
+>>>>>>> origin/master
             );
         }
     }

@@ -1,0 +1,54 @@
+﻿
+@model IEnumerable<MyProject.Models.EmployeeLeaveRequest>
+
+@{
+                ViewBag.Title = "Pending Leave Approval";
+
+}
+
+<h2>Pending Leave Approval</h2>
+
+<table class="table">
+
+    <tr>
+
+        <th>Leave Type</th>
+
+        <th>From Date</th>
+
+        <th>To Date</th>
+
+        <th>Days of Leave</th>
+
+        <th>Reason</th>
+
+        <th>Action</th>
+
+    </tr>
+
+    @foreach (var leaveRequest in Model)
+
+    {
+
+        <tr>
+
+            <td>@leaveRequest.LeaveType</td>
+
+            <td>@leaveRequest.FromDate.ToShortDateString()</td>
+
+            <td>@leaveRequest.ToDate.ToShortDateString()</td>
+
+            <td>@leaveRequest.DaysOfLeave</td>
+
+            <td>@leaveRequest.Reason</td>
+
+            <td>
+
+                @Html.ActionLink("Pending", "PendingLeave", new { leaveRequestId = leaveRequest.Id }, new { @class = "btn btn-danger" })
+
+            </td>
+
+        </tr>
+                    }
+
+</table>
