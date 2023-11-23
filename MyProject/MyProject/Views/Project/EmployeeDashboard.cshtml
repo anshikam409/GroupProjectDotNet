@@ -1,42 +1,42 @@
 ﻿@model MyProject.Models.EmployeeLogin
 
-@{
-    ViewBag.Title = "EmployeeDashboard";
-}
+@{ ViewBag.Title = "EmployeeDashboard"; }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             text-align: center;
-            padding: 50px;
+            padding: 500px;
             color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         h2 {
             color: #3498db;
         }
 
-        h3 {
-            color: #333;
-        }
-
         .dashboard-container {
-            max-width: 600px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
         .action-buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 20px;
         }
@@ -44,8 +44,9 @@
         .action-button {
             background-color: #3498db;
             color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -58,18 +59,24 @@
     </style>
 </head>
 <body>
-    <h2>Welcome </h2>
+    <h2>Welcome to the Employee Dashboard</h2>
 
     <div class="dashboard-container">
 
-
         <div class="action-buttons">
-            <a href="@Url.Action("Timesheet", "Project")" class="action-button">
+            <a href="@Url.Action("Timesheet", "TimeSheets")" class="action-button">
                 My Timesheet
             </a>
 
-            <a href="@Url.Action("Leave", "Project")" class="action-button">
-                Leave
+            <a href="@Url.Action("ApplyLeave", "Leave")" class="action-button">
+                Apply for Leave
+            </a>
+
+            <a href="@Url.Action("PendingLeaveApproval", "Leave")" class="action-button">
+                Pending Leave Approval
+            </a>
+            <a href="@Url.Action("LeaveSummary", "Leave")" class="action-button">
+                Leave Summary
             </a>
         </div>
     </div>
