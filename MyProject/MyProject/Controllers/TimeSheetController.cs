@@ -53,7 +53,7 @@ namespace MyProject.Controllers
                 db.Timesheets.Add(timesheet);
                 db.SaveChanges();
                 TempData["SuccessMessage"] = "Timesheet created successfully!";
-                return RedirectToAction("Index");
+                return RedirectToAction("EmployeeDashboard","Project");
 
             }
 
