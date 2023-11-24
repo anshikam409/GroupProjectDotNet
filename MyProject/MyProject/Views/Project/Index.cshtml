@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .login-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .login-button:hover {
+                background-color: #2980b9;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="display-4">Welcome to Attendance and Leave Management</h2>
+        </div>
+
+        <div class="button-container">
+            <a href="@Url.Action("EmployeeLogin", "Project")" class="btn btn-primary btn-lg login-button">Employee Login</a>
+
+            <a href="@Url.Action("ManagerLogin", "Project")" class="btn btn-primary btn-lg login-button">Manager Login</a>
+
+            <a href="@Url.Action("SignUpManager", "Project")" class="btn btn-success btn-lg login-button">Manager Signup</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

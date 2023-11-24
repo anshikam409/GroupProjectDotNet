@@ -1,0 +1,71 @@
+﻿﻿@model IEnumerable<MyProject.Models.Timesheet>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links {
+        text-decoration: none;
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .create-link {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-decoration: none;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Display timesheets in a styled table -->
+<table>
+    <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Task</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Hours</th>
+        <th>Remarks</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProjectID</td>
+            <td>@item.Projectname</td>
+            <td>@item.task</td>
+            <td>@item.Datenow</td>
+            <td>@item.category</td>
+            <td>@item.Hours</td>
+            <td>@item.remarks</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProjectID }, new { @class = "action-links" })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProjectID }, new { @class = "action-links" })
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Link to create a new timesheet with a styled button -->
+@Html.ActionLink("Create New", "Create", null, new { @class = "create-link" })
