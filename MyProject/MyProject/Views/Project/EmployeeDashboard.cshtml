@@ -1,4 +1,4 @@
-﻿﻿@model MyProject.Models.EmployeeLogin
+﻿﻿@model  MyProject.Models.EmployeeLogin
 
 @{ ViewBag.Title = "EmployeeDashboard"; }
 
@@ -59,7 +59,8 @@
     </style>
 </head>
 <body>
-    <h2>Welcome to the Employee Dashboard</h2>
+    <p>Welcome @Model.Name.!</p>
+  
 
     <div class="dashboard-container">
 
@@ -77,6 +78,9 @@
             </a>
             <a href="@Url.Action("LeaveSummary", "Leave")" class="action-button">
                 Leave Summary
+            </a>
+            <a href="@Url.Action("Index", "Project")" class="action-button">
+                Logout
             </a>
         </div>
     </div>

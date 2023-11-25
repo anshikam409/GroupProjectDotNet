@@ -9,8 +9,9 @@ namespace MyProject.Models
     public class EmployeeLogin
     {
 
-        [Key]
+       
         public int EmployeeID { get; set; }
+        [Key]
         public string Name { get; set; }
         public string Password { get; set; }
     }

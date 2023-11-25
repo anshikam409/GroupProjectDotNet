@@ -13,11 +13,15 @@ namespace MyProject.Controllers
     {
         // GET: Leave
         private IRepository<EmployeeLeaveRequest> db = null;
+       
         public LeaveController()
         {
             db = new Repository<EmployeeLeaveRequest>();
+        
 
         }
+
+      
 
         public ActionResult Index()
         {
@@ -84,6 +88,7 @@ namespace MyProject.Controllers
 
         }
 
+
         [HttpPost]
 
         public ActionResult DeleteLeave(int leaveRequestId)
@@ -105,6 +110,16 @@ namespace MyProject.Controllers
             return RedirectToAction("PendingLeaveApproval");
 
         }
+
+        public ActionResult acceptleave()
+        {
+            var pendingLeaveRequests = db.GetAll().Where(l => !l.IsApproved);
+
+            return View(pendingLeaveRequests);
+            
+        }
+
+
 
     }
 

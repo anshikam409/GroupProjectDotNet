@@ -1,54 +1,83 @@
-﻿﻿
-@model IEnumerable<MyProject.Models.EmployeeLeaveRequest>
+﻿@model IEnumerable<MyProject.Models.EmployeeLeaveRequest>
 
 @{
     ViewBag.Title = "Pending Leave Approval";
-
 }
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<style>
+    body {
+        padding: 20px;
+        background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #495057; /* Dark gray text color */
+    }
+
+    .table th, .table td {
+        text-align: center;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-pending {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-accept {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-reject {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+</style>
 
 <h2>Pending Leave Approval</h2>
 
-<table class="table">
-
-    <tr>
-
-        <th>Leave Type</th>
-
-        <th>From Date</th>
-
-        <th>To Date</th>
-
-        <th>Days of Leave</th>
-
-        <th>Reason</th>
-
-        <th>Action</th>
-
-    </tr>
-
-    @foreach (var leaveRequest in Model)
-
-    {
-
-        <tr>
-
-            <td>@leaveRequest.LeaveType</td>
-
-            <td>@leaveRequest.FromDate.ToShortDateString()</td>
-
-            <td>@leaveRequest.ToDate.ToShortDateString()</td>
-
-            <td>@leaveRequest.DaysOfLeave</td>
-
-            <td>@leaveRequest.Reason</td>
-
-            <td>
-
-                @Html.ActionLink("Pending", "PendingLeave", new { leaveRequestId = leaveRequest.Id }, new { @class = "btn btn-danger" })
-
-            </td>
-
-        </tr>
-    }
-
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Leave Type</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Days of Leave</th>
+                <th>Reason</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var leaveRequest in Model)
+            {
+                <tr>
+                    <td>@leaveRequest.LeaveType</td>
+                    <td>@leaveRequest.FromDate.ToShortDateString()</td>
+                    <td>@leaveRequest.ToDate.ToShortDateString()</td>
+                    <td>@leaveRequest.DaysOfLeave</td>
+                    <td>@leaveRequest.Reason</td>
+                    <td>
+                        <div class="btn-container">
+                            <a href="@Url.Action("acceptleave", "Leave", new { leaveRequestId = leaveRequest.Id })" class="btn btn-success btn-lg action-button" target="_blank">
+                                Accept
+                            </a>
+                            @Html.ActionLink("Reject", "RejectLeave", new { leaveRequestId = leaveRequest.Id }, new { @class = "btn btn-reject" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

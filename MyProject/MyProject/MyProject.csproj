@@ -129,6 +129,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectDetailsController.cs" />
     <Compile Include="Controllers\TimeSheetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,8 +178,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -206,6 +205,12 @@
     <Content Include="Views\Timesheets\Delete.cshtml" />
     <Content Include="Views\Leave\ApplyLeave.cshtml" />
     <Content Include="Views\Leave\PendingLeaveApproval.cshtml" />
+    <Content Include="Views\ProjectDetails\Index.cshtml" />
+    <Content Include="Views\ProjectDetails\Details.cshtml" />
+    <Content Include="Views\ProjectDetails\Create.cshtml" />
+    <Content Include="Views\ProjectDetails\Edit.cshtml" />
+    <Content Include="Views\ProjectDetails\Delete.cshtml" />
+    <Content Include="Views\Leave\acceptleave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

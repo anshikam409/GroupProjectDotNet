@@ -52,6 +52,11 @@ namespace MyProject.Controllers
             {
                 if (IsValidEmployee(model.Name, model.Password))
                 {
+                    //var v = _emprepo.GetById(model.EmployeeID);
+                    EmployeeLogin v = _employeeRepository.GetById(model.Name);
+                    SetUserDataInSession(v);
+
+
                     return RedirectToAction("EmployeeDashboard");
                 }
                 else
@@ -61,10 +66,43 @@ namespace MyProject.Controllers
             }
             return View(model);
         }
-
-        public ActionResult EmployeeDashboard()
+        private void SetUserDataInSession(EmployeeLogin user)
         {
-            return View();
+            // Store user data in session
+            Session["Name"] = user.Name;
+           // Session["Username"] = user.Username;
+            
+        }
+        private EmployeeLogin GetUserDataFromSession()
+        {
+            // Retrieve user data from session
+           // int userId = (int)Session["UserId"];
+            string username = (string)Session["Name"];
+            //string firstName = (string)Session["FirstName"];
+            //string lastName = (string)Session["LastName"];
+            // Retrieve other user properties as needed
+
+            // Create a User object and return it
+            EmployeeLogin user = new EmployeeLogin
+            {
+                //UserId = userId,
+                Name = username,
+                //FirstName = firstName,
+                //LastName = lastName
+                // Set other user properties as needed
+            };
+
+            return user;
+        }
+
+
+
+        public ActionResult EmployeeDashboard(EmployeeLogin v)
+        {
+            EmployeeLogin user = GetUserDataFromSession();
+
+            return View(user);
+            //return View(v);
         }
 
         public ActionResult SignUpManager()

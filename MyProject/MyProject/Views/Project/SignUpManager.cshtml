@@ -51,7 +51,7 @@
         @Html.AntiForgeryToken()
         <form>
             <label for="Username">Username</label>
-            @Html.TextBoxFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name , new { autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
             <label for="Password">Password</label>

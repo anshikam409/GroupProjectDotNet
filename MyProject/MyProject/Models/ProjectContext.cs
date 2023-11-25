@@ -20,5 +20,6 @@ namespace MyProject.Models
         public DbSet<ProjectDetails> projectDetails { get; set; }
         public DbSet<Timesheet> Timesheets { get; set; }
         public DbSet<EmployeeLeaveRequest> Leaves { get; set; }
+        //public DbSet<ProjectDetails> ProjectDetails { get; set; }
     }
 }
