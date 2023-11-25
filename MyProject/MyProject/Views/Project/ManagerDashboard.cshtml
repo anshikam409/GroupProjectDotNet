@@ -61,7 +61,15 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h2 class="display-4">Welcome, Manager!</h2>
+            <h2 class="display-4">Welcome,@Model.Name!</h2>
+            <ul>
+               <h5>ID</h5> <li>@Model.ManagerID</li>
+               <h5>Designation</h5> <li>@Model.Designation</li>
+               <h5>Status</h5><li>@Model.Status</li>
+               <h5>Email</h5> <li>@Model.Email</li> 
+               <h5>Phone</h5> <li>@Model.Phone</li>
+               <h5>Grade</h5><li>@Model.Grade</li>
+            </ul>
         </div>
 
         <div class="dashboard-container">

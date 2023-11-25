@@ -74,17 +74,42 @@
     {
         @Html.AntiForgeryToken()
 
-        <form>
-            <label for="Username">Username</label>
-            @Html.TextBoxFor(model => model.Name, new { autocomplete = "off" })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+<form>
+    <label for="ManagerID">ManagerID</label>
+    @Html.TextBoxFor(model => model.ManagerID)
+    @Html.ValidationMessageFor(model => model.ManagerID, "", new { @class = "text-danger" })
 
-            <label for="Password">Password</label>
-            @Html.PasswordFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    <label for="Username">Username</label>
+    @Html.TextBoxFor(model => model.Name, new { autocomplete = "off" })
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
-            <button type="submit">Sign Up</button>
-        </form>
+    <label for="Email">Email</label>
+    @Html.TextBoxFor(model => model.Email)
+    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+    <label for="Phone">Phone</label>
+    @Html.TextBoxFor(model => model.Phone)
+    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+    <label for="Status">Status</label>
+    @Html.TextBoxFor(model => model.Status)
+    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+    <label for="Grade">Grade</label>
+    @Html.TextBoxFor(model => model.Grade)
+    @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+
+    <label for="Designation">Designation</label>
+    @Html.TextBoxFor(model => model.Designation)
+    @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+
+    <label for="Password">Password</label>
+    @Html.PasswordFor(model => model.Password)
+    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+
+    <button type="submit">Sign Up</button>
+</form>
     }
 </body>
 </html>

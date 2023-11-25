@@ -96,6 +96,50 @@ namespace MyProject.Controllers
 
             return user;
         }
+        private void SetManagerDataInSession(ManagerLogin user)
+        {
+            // Store user data in session
+            Session["Name"] = user.Name;
+            Session["ManagerID"] = user.ManagerID;
+            Session["Grade"] = user.Grade;
+            Session["Designation"] = user.Designation;
+            Session["Satus"] = user.Status;
+            Session["Phone"] = user.Phone;
+            Session["Email"] = user.Email;
+            
+            // Session["Username"] = user.Username;
+
+        }
+        private ManagerLogin GetManagerDataFromSession()
+        {
+            // Retrieve user data from session
+            
+            string ManagerName = (string)Session["Name"];
+            int ManagerID = (int)Session["ManagerID"];
+            string Phone = (String)Session["Phone"];
+            string Status = (string)Session["Status"];
+            String Email = (String)Session["Email"];
+            string Grade = (String)Session["Grade"];
+            string Designation = (string)Session["Designation"];
+            // Retrieve other user properties as needed
+
+            // Create a User object and return it
+            ManagerLogin user = new ManagerLogin
+            {
+                ManagerID = ManagerID,
+                Name = ManagerName,
+                Grade = Grade,
+                Designation = Designation,
+                Status = Status,
+                Phone = Phone,
+                Email = Email,
+
+
+            };
+
+            return user;
+        }
+
 
 
 
@@ -131,6 +175,8 @@ namespace MyProject.Controllers
             {
                 if (IsValidManager(model.Name, model.Password))
                 {
+                    ManagerLogin v = _managerRepository.GetById(model.Name);
+                    SetManagerDataInSession(v);
                     return RedirectToAction("ManagerDashboard");
                 }
                 else
@@ -143,7 +189,8 @@ namespace MyProject.Controllers
 
         public ActionResult ManagerDashboard()
         {
-            return View();
+            var user = GetManagerDataFromSession();
+            return View(user);
         }
 
         private bool IsValidEmployee(string name, string password)

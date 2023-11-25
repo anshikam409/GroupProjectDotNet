@@ -8,9 +8,16 @@ namespace MyProject.Models
 {
     public class ManagerLogin
     {
-        [Key]
+        
         public int ManagerID { get; set; }
+
+        [Key]
         public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public String Status { get; set; }
+        public string Grade { get; set; }
+        public string Designation { get; set; }
         public string Password { get; set; }
     }
 }
