@@ -11,13 +11,13 @@ namespace MyProject.Controllers
 {
     public class ProjectController : Controller
     {
-        IRepository<EmployeeLogin> _employeeRepository = null;
+       // IRepository<EmployeeLogin> _employeeRepository = null;
         IRepository<ManagerLogin> _managerRepository = null;
         private IRepository<EmployeeDetails> _emprepo = null;
         IRepository<ProjectDetails> _project = null;
         public ProjectController()
         {
-            _employeeRepository = new Repository<EmployeeLogin>();
+           // _employeeRepository = new Repository<EmployeeLogin>();
             _managerRepository = new Repository<ManagerLogin>();
             _emprepo = new Repository<EmployeeDetails>();
             _project = new Repository<ProjectDetails>();
@@ -28,32 +28,32 @@ namespace MyProject.Controllers
             return View();
         }
 
-        public ActionResult SignUpEmployee()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult SignUpEmployee(EmployeeLogin employee)
-        {
-            _employeeRepository.Insert(employee);
-            _employeeRepository.Save();     
-            return RedirectToAction("ManagerDashboard");
-        }
-        // Action method for EmployeeLogin
+        //public ActionResult SignUpEmployee()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult SignUpEmployee(EmployeeLogin employee)
+        //{
+        //    .Insert(employee);
+        //    _employeeRepository.Save();
+        //    return RedirectToAction("ManagerDashboard");
+        //}
+       // Action method for EmployeeLogin
         public ActionResult EmployeeLogin()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult EmployeeLogin(EmployeeLogin model)
+        public ActionResult EmployeeLogin(EmployeeDetails model)
         {
             if (ModelState.IsValid)
             {
-                if (IsValidEmployee(model.Name, model.Password))
+                if (IsValidEmployee(model.Employeename, model.Password))
                 {
                     //var v = _emprepo.GetById(model.EmployeeID);
-                    EmployeeLogin v = _employeeRepository.GetById(model.Name);
+                    EmployeeDetails v = _emprepo.GetById(model.Employeename);
                     SetUserDataInSession(v);
 
 
@@ -66,30 +66,32 @@ namespace MyProject.Controllers
             }
             return View(model);
         }
-        private void SetUserDataInSession(EmployeeLogin user)
+        private void SetUserDataInSession(EmployeeDetails user)
         {
             // Store user data in session
-            Session["Name"] = user.Name;
+            Session["Name"] = user.Employeename;
+            Session["EmpID"] = user.EmpID;
+            Session["Grade"] = user.Grade;
+            Session["Designation"] = user.Designation;
            // Session["Username"] = user.Username;
             
         }
-        private EmployeeLogin GetUserDataFromSession()
+        private EmployeeDetails GetUserDataFromSession()
         {
             // Retrieve user data from session
-           // int userId = (int)Session["UserId"];
+           int EmployeeID = (int)Session["EmpID"];
             string username = (string)Session["Name"];
-            //string firstName = (string)Session["FirstName"];
-            //string lastName = (string)Session["LastName"];
+            string Grade=(String)Session["Grade"];
+            string Designation = (string)Session["Designation"];
             // Retrieve other user properties as needed
 
             // Create a User object and return it
-            EmployeeLogin user = new EmployeeLogin
+            EmployeeDetails user = new EmployeeDetails
             {
-                //UserId = userId,
-                Name = username,
-                //FirstName = firstName,
-                //LastName = lastName
-                // Set other user properties as needed
+                EmpID = EmployeeID,
+                Employeename = username,
+                Grade = Grade,
+                Designation = Designation
             };
 
             return user;
@@ -97,9 +99,9 @@ namespace MyProject.Controllers
 
 
 
-        public ActionResult EmployeeDashboard(EmployeeLogin v)
+        public ActionResult EmployeeDashboard(EmployeeDetails v)
         {
-            EmployeeLogin user = GetUserDataFromSession();
+            EmployeeDetails user = GetUserDataFromSession();
 
             return View(user);
             //return View(v);
@@ -146,7 +148,7 @@ namespace MyProject.Controllers
 
         private bool IsValidEmployee(string name, string password)
         {
-            var employee = _employeeRepository.GetAll().FirstOrDefault(e => e.Name == name && e.Password == password);
+            var employee = _emprepo.GetAll().FirstOrDefault(e => e.Employeename == name && e.Password == password);
             return employee != null;
         }
 
@@ -157,9 +159,9 @@ namespace MyProject.Controllers
         }
 
         // Additional action method for Employee details
-        public ActionResult EmployeeDetails(int id)
+        public ActionResult EmployeeDetails(string Name)
         {
-            var employee = _employeeRepository.GetById(id);
+            var employee = _emprepo.GetById(Name);
             return View(employee);
         }
 
@@ -295,10 +297,10 @@ namespace MyProject.Controllers
 
         // Additional action method to handle form submission for creating Employee
         [HttpPost]
-        public ActionResult CreateEmployee(EmployeeLogin employee)
+        public ActionResult CreateEmployee(EmployeeDetails employee)
         {
-            _employeeRepository.Insert(employee);
-            _employeeRepository.Save();
+            _emprepo.Insert(employee);
+            _emprepo.Save();
 
             return RedirectToAction("EmployeeLogin");
         }

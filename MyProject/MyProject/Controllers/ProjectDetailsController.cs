@@ -8,8 +8,8 @@ using System.Data.Entity;
 
 namespace MyProject.Controllers
 {
-    public class ProjectDetailsController : Controller
-    {
+  //  public class ProjectDetailsController : Controller
+   // {
         // GET: ProjectDetails
         //ProjectContext db = new ProjectContext();
 
@@ -88,5 +88,5 @@ namespace MyProject.Controllers
         //}
 
 
-    }
+  //  }
 }

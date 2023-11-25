@@ -1,4 +1,4 @@
-﻿@model MyProject.Models.EmployeeLogin
+﻿@model MyProject.Models.EmployeeDetails
 
 @{
     ViewBag.Title = "Employee Dashboard";
@@ -67,7 +67,14 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <h2>Welcome, @Model.Name!</h2>
+        <h2>Welcome, @Model.Employeename</h2>
+        <p>
+            <ul>
+                <li>Employee ID: @Model.EmpID</li>
+                <li>Employee Grade:@Model.Grade</li>
+                <li>Designation:@Model.Designation</li>
+            </ul>
+        </p>
         <p>Streamline your workday with our Employee Dashboard.</p>
 
 

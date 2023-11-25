@@ -1,4 +1,4 @@
-﻿@model MyProject.Models.EmployeeLogin
+﻿@model MyProject.Models.EmployeeDetails
 
 @{
     ViewBag.Title = "SignUpEmployee";
@@ -76,8 +76,8 @@
 
         <form>
             <label for="Name">Username</label>
-            @Html.TextBoxFor(model => model.Name, new { autocomplete = "off" })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Employeename, new { autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Employeename, "", new { @class = "text-danger" })
 
             <label for="Password">Password</label>
             @Html.PasswordFor(model => model.Password)

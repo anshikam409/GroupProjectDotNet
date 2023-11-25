@@ -9,9 +9,9 @@ namespace MyProject.Models
 {
     public class ProjectDetails
     {
-        [Key][Column(Order =0)]
+        [Key]
         public int ProjectID { get; set; }
-        [Key][Column(Order =1)]
+        
         public string ProjectName { get; set; }
     }
 }
