@@ -17,41 +17,66 @@
         }
 
         h2 {
+            color: #3498db;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
             color: #333;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
         }
 
-        .login-button {
+        button {
             background-color: #3498db;
             color: #fff;
-            padding: 15px 30px;
+            padding: 10px 20px;
             font-size: 16px;
-            margin: 0 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-            .login-button:hover {
+            button:hover {
                 background-color: #2980b9;
             }
+
+        .validation-summary-errors {
+            color: #e74c3c;
+        }
+
+        .field-validation-error {
+            color: #e74c3c;
+        }
     </style>
 </head>
 <body>
-    <h2>Employee Signup</h2>
+    <h2>Manager Signup</h2>
 
     @using (Html.BeginForm("SignUpManager", "Project", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+
         <form>
             <label for="Username">Username</label>
-            @Html.TextBoxFor(model => model.Name , new { autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Name, new { autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
             <label for="Password">Password</label>
@@ -59,6 +84,7 @@
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
             <button type="submit">Sign Up</button>
-        </form>}
+        </form>
+    }
 </body>
 </html>

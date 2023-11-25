@@ -1,14 +1,82 @@
-﻿﻿@model MyProject.Models.EmployeeLeaveRequest
+﻿@model MyProject.Models.EmployeeLeaveRequest
 
-@{ ViewBag.Title = "Apply Leave"; }
+@{
+    ViewBag.Title = "Apply Leave";
+}
 
-<h2>Apply Leave</h2>
-@Html.HiddenFor(model => model.ManagerApprovalStatus)
-@Html.HiddenFor(model => model.ManagerComments)
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
 
+        h2 {
+            color: #3498db;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #2980b9;
+            }
+
+        .text-danger {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Apply Leave</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="form-container">
     <div class="form-group">
         @Html.LabelFor(model => model.LeaveType)
         @Html.DropDownListFor(model => model.LeaveType, GetLeaveTypes(), "Select Leave Type", new { @class = "form-control" })
@@ -69,34 +137,41 @@
         @Html.ValidationMessageFor(model => model.Reason, "", new { @class = "text-danger" })
     </div>
 
+    
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />
-    </div>}
-
-@functions { private SelectList GetLeaveTypes()
-    {
-        var leaveTypes = new List<string>
-{
-            "Adoption Leave",
-            "Bereavement Leave",
-            "Casual / Sick Leave",
-            "LOP",
-            "Maternity Leave",
-            "Miscarriage Leave",
-            "Privilege Leave"
-        };
-
-        return new SelectList(leaveTypes);
+    </div>
+</div>
     }
 
-    private SelectList GetSessions()
-    {
-        var sessions = new List<string>
-{
-            "Full Day",
-            "Half Day / First Half",
-            "Half Day / Second Half"
-        };
+    @functions {
+        private SelectList GetLeaveTypes()
+        {
+            var leaveTypes = new List<string>
+            {
+                "Adoption Leave",
+                "Bereavement Leave",
+                "Casual / Sick Leave",
+                "LOP",
+                "Maternity Leave",
+                "Miscarriage Leave",
+                "Privilege Leave"
+            };
 
-        return new SelectList(sessions);
-    } }
+            return new SelectList(leaveTypes);
+        }
+
+        private SelectList GetSessions()
+        {
+            var sessions = new List<string>
+            {
+                "Full Day",
+                "Half Day / First Half",
+                "Half Day / Second Half"
+            };
+
+            return new SelectList(sessions);
+        }
+    }
+</body>
+</html>
