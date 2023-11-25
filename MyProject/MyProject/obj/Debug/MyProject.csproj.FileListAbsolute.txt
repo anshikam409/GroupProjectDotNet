@@ -579,3 +579,4 @@ D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.CopyComplete
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.dll
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.pdb
+D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.AssemblyReference.cache

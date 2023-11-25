@@ -1,19 +1,19 @@
-﻿﻿@model  MyProject.Models.EmployeeLogin
+﻿@model MyProject.Models.EmployeeLogin
 
-@{ ViewBag.Title = "EmployeeDashboard"; }
+@{
+    ViewBag.Title = "Employee Dashboard";
+}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
-            text-align: center;
-            padding: 500px;
-            color: #333;
             margin: 0;
             height: 100vh;
             display: flex;
@@ -21,23 +21,29 @@
             justify-content: center;
         }
 
-        h2 {
-            color: #3498db;
-        }
-
         .dashboard-container {
             width: 100%;
             max-width: 800px;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
             margin-top: 20px;
         }
 
@@ -51,6 +57,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-decoration: none;
         }
 
             .action-button:hover {
@@ -59,29 +66,17 @@
     </style>
 </head>
 <body>
-    <p>Welcome @Model.Name.!</p>
-  
-
     <div class="dashboard-container">
+        <h2>Welcome, @Model.Name!</h2>
+        <p>Streamline your workday with our Employee Dashboard.</p>
+
 
         <div class="action-buttons">
-            <a href="@Url.Action("Addattendence", "Timesheets")" class="action-button">
-                My Timesheet
-            </a>
-
-            <a href="@Url.Action("ApplyLeave", "Leave")" class="action-button">
-                Apply for Leave
-            </a>
-
-            <a href="@Url.Action("PendingLeaveApproval", "Leave")" class="action-button">
-                Pending Leave Approval
-            </a>
-            <a href="@Url.Action("LeaveSummary", "Leave")" class="action-button">
-                Leave Summary
-            </a>
-            <a href="@Url.Action("Index", "Project")" class="action-button">
-                Logout
-            </a>
+            <a href="@Url.Action("AddAttendance", "Timesheets")" class="action-button">My Timesheet</a>
+            <a href="@Url.Action("ApplyLeave", "Leave")" class="action-button">Apply for Leave</a>
+            <a href="@Url.Action("PendingLeaveApproval", "Leave")" class="action-button">Pending Leave Approval</a>
+            <a href="@Url.Action("LeaveSummary", "Leave")" class="action-button">Leave Summary</a>
+            <a href="@Url.Action("Index", "Project")" class="action-button">Logout</a>
         </div>
     </div>
 </body>
