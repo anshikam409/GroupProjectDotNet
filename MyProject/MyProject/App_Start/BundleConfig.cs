@@ -23,7 +23,7 @@ namespace MyProject
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap_Cyborg.css",
+                      "~/Content/bootstrap_solar.css",
                       "~/Content/site.css"));
         }
     }

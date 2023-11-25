@@ -10,29 +10,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #040D12;
             margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 120vh; /* Increased height to 120vh */
+            color: #93B1A6;
         }
 
         .dashboard-container {
             width: 100%;
             max-width: 800px;
-            background-color: #fff;
+            background-color: #183D3D;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             text-align: center;
+            overflow: hidden;
+            margin: auto;
         }
 
         h2 {
-            color: #3498db;
+            color: #5C8374;
         }
 
         p {
@@ -40,15 +41,25 @@
             margin-bottom: 20px;
         }
 
+        table {
+            width: 100%;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+            table th, table td {
+                padding: 10px;
+                border-bottom: 1px solid #5C8374;
+            }
+
         .action-buttons {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-end;
             margin-top: 20px;
         }
 
         .action-button {
-            background-color: #3498db;
+            background-color: #5C8374;
             color: #fff;
             padding: 15px 25px;
             font-size: 18px;
@@ -61,30 +72,51 @@
         }
 
             .action-button:hover {
-                background-color: #2980b9;
+                background-color: #183D3D;
             }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #040D12;
+            color: #93B1A6;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
         <h2>Welcome, @Model.Employeename</h2>
-        <p>
-            <ul>
-                <li>Employee ID: @Model.EmpID</li>
-                <li>Employee Grade:@Model.Grade</li>
-                <li>Designation:@Model.Designation</li>
-            </ul>
-        </p>
-        <p>Streamline your workday with our Employee Dashboard.</p>
-
+        <table>
+            <tr>
+                <th>Employee ID</th>
+                <td>@Model.EmpID</td>
+            </tr>
+            <tr>
+                <th>Employee Grade</th>
+                <td>@Model.Grade</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>@Model.Designation</td>
+            </tr>
+        </table>
 
         <div class="action-buttons">
-            <a href="@Url.Action("AddAttendance", "Timesheets")" class="action-button">My Timesheet</a>
+            <a href="@Url.Action("Addattendence","Timesheets")" class="action-button">My Timesheet</a>
             <a href="@Url.Action("ApplyLeave", "Leave")" class="action-button">Apply for Leave</a>
-            <a href="@Url.Action("PendingLeaveApproval", "Leave")" class="action-button">Pending Leave Approval</a>
             <a href="@Url.Action("LeaveSummary", "Leave")" class="action-button">Leave Summary</a>
             <a href="@Url.Action("Index", "Project")" class="action-button">Logout</a>
         </div>
     </div>
+
+    <div class="footer">
+        Your footer content goes here.
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

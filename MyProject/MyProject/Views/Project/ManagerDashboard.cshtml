@@ -12,118 +12,156 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #040D12;
+            color: #93B1A6;
             text-align: center;
             padding: 50px;
-            color: #333;
+            margin: 0;
         }
 
-        h2 {
-            color: #3498db;
+        h2, h3 {
+            color: #5C8374;
         }
 
-        h3 {
-            color: #333;
+        .jumbotron {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('path_to_your_image.jpg');
+            color: #fff;
+            background-size: cover;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
         }
 
         .dashboard-container {
+            display: flex;
+            justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: #183D3D;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
 
-        .action-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 15px;
+        .employee-details {
+            width: 30%;
+            text-align: left;
         }
 
-        .action-button {
-            background-color: #3498db;
+        table {
+            width: 100%;
             color: #fff;
+            margin-top: 20px;
+        }
+
+            table th, table td {
+                padding: 10px;
+                border-bottom: 1px solid #5C8374;
+            }
+
+        .nav-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .logout-button {
+            background-color: #183D3D;
+            color: #93B1A6;
             padding: 10px 20px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-bottom: 10px;
         }
 
+            .logout-button:hover {
+                background-color: #5C8374;
+            }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            flex: 1;
+            background-color: #5C8374;
+            color: #fff;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+            .action-button:last-child {
+                margin-right: 0;
+            }
+
             .action-button:hover {
-                background-color: #2980b9;
+                background-color: #183D3D;
             }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="nav-bar">
+            <a href="@Url.Action("Index", "Project")" class="logout-button">Logout</a>
+        </div>
+
         <div class="jumbotron">
-            <h2 class="display-4">Welcome,@Model.Name!</h2>
-            <ul>
-               <h5>ID</h5> <li>@Model.ManagerID</li>
-               <h5>Designation</h5> <li>@Model.Designation</li>
-               <h5>Status</h5><li>@Model.Status</li>
-               <h5>Email</h5> <li>@Model.Email</li> 
-               <h5>Phone</h5> <li>@Model.Phone</li>
-               <h5>Grade</h5><li>@Model.Grade</li>
-            </ul>
+            <h2 class="display-4">Welcome, @Model.Name!</h2>
+            <div class="employee-details">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <td>@Model.ManagerID</td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td>@Model.Designation</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>@Model.Status</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>@Model.Phone</td>
+                    </tr>
+                    <tr>
+                        <th>Grade</th>
+                        <td>@Model.Grade</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div class="dashboard-container">
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="@Url.Action("SignUpEmployee", "Project")" class="btn btn-primary btn-lg btn-block action-button">
-                        Employee Signup
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("Addattendence", "Manager")" class="btn btn-primary btn-lg btn-block action-button">
-                        My Timesheet
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("Index", "Timesheets")" class="btn btn-primary btn-lg btn-block action-button">
-                        My Team Timesheet
-                    </a>
-                </div>
+            <div class="action-buttons">
+                <a href="@Url.Action("Addattendence", "Manager")" class="action-button">My Timesheet</a>
+                <a href="@Url.Action("Index", "Timesheets")" class="action-button">My Team Timesheet</a>
+                <a href="@Url.Action("ManagerApplyLeave", "ManagerLeave")" class="action-button">My Leaves</a>
+                <a href="@Url.Action("PendingLeaveApproval","Leave")" class="action-button">My Team Leaves</a>
+                <a href="@Url.Action("EmployeeIndex", "Project")" class="action-button">Employee Details</a>
+                <a href="@Url.Action("ProjectIndex", "Project")" class="action-button">Project Details</a>
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="@Url.Action("ManagerApplyLeave", "ManagerLeave")" class="btn btn-primary btn-lg btn-block action-button">
-                        My Leaves
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("PendingLeaveApproval","Leave")" class="btn btn-primary btn-lg btn-block action-button">
-                        My Team Leaves
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("EmployeeIndex", "Project")" class="btn btn-primary btn-lg btn-block action-button">
-                        Employee Details
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 offset-md-4">
-                    <a href="@Url.Action("ProjectIndex", "Project")" class="btn btn-primary btn-lg btn-block action-button">
-                        Project Details
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 offset-md-4">
-                    <a href="@Url.Action("Index", "Project")" class="btn btn-danger btn-lg btn-block action-button">
-                        Logout
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 

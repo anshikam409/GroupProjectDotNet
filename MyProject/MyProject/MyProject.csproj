@@ -154,7 +154,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapMinty.css" />
     <Content Include="Content\bootstrap_Cyborg.css" />
+    <Content Include="Content\bootstrap_solar.css" />
     <Content Include="Content\bootstrap_Vapor.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
