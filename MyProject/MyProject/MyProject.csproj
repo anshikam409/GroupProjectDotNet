@@ -128,6 +128,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\ManagerLeaveController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ProjectDetailsController.cs" />
     <Compile Include="Controllers\TimeSheetController.cs" />
@@ -137,7 +139,9 @@
     <Compile Include="Models\EmployeeDetails.cs" />
     <Compile Include="Models\EmployeeLeaveRequest.cs" />
     <Compile Include="Models\EmployeeLogin.cs" />
+    <Compile Include="Models\ManagerLeave.cs" />
     <Compile Include="Models\ManagerLogin.cs" />
+    <Compile Include="Models\ManagerTimesheet.cs" />
     <Compile Include="Models\ProjectContext.cs" />
     <Compile Include="Models\ProjectDetails.cs" />
     <Compile Include="Models\Repository\IRepository.cs" />
@@ -211,6 +215,10 @@
     <Content Include="Views\ProjectDetails\Edit.cshtml" />
     <Content Include="Views\ProjectDetails\Delete.cshtml" />
     <Content Include="Views\Leave\acceptleave.cshtml" />
+    <Content Include="Views\Manager\Addattendence.cshtml" />
+    <Content Include="Views\Manager\ManagerTimesheetIndex.cshtml" />
+    <Content Include="Views\ManagerLeave\ManagerApplyLeave.cshtml" />
+    <Content Include="Views\ManagerLeave\ManagerLeaveIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

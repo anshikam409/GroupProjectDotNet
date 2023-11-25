@@ -7,9 +7,7 @@ using System.Web;
 namespace MyProject.Models
 {
     public class EmployeeLogin
-    {
-
-       
+    {       
         public int EmployeeID { get; set; }
         [Key]
         public string Name { get; set; }
