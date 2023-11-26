@@ -580,6 +580,7 @@ D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.dll
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.pdb
 D:\NewProject\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.AssemblyReference.cache
+<<<<<<< Updated upstream
 D:\Newgitrepo\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.dll.config
 D:\Newgitrepo\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.dll
 D:\Newgitrepo\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.pdb
@@ -746,6 +747,8 @@ D:\Satclone\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.Co
 D:\Satclone\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.dll
 D:\Satclone\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.pdb
 D:\Satclone\GroupProjectDotNet\MyProject\MyProject\obj\Debug\MyProject.csproj.AssemblyReference.cache
+=======
+>>>>>>> Stashed changes
 C:\DotNetProject\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.dll.config
 C:\DotNetProject\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.dll
 C:\DotNetProject\GroupProjectDotNet\MyProject\MyProject\bin\MyProject.pdb
