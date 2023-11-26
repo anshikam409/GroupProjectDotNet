@@ -242,20 +242,20 @@ namespace MyProject.Controllers
                 return View();
             }
         }
-        public ActionResult EmployeeDisplay(int id)
+        public ActionResult EmployeeDisplay(string name)
         {
-            var emp = _emprepo.GetById(id);
+            var emp = _emprepo.GetById(name);
             return View(emp);
         }
-        public ActionResult EmployeeDelete(int id)
+        public ActionResult EmployeeDelete(string name)
         {
-            _emprepo.Delete(id);
+            _emprepo.Delete(name);
             _emprepo.Save();
             return RedirectToAction("EmployeeIndex");
         }
-        public ActionResult EmployeeEdit(int id)
+        public ActionResult EmployeeEdit(string name)
         {
-            var emp = _emprepo.GetById(id);
+            var emp = _emprepo.GetById(name);
             return View(emp);
         }
         [HttpPost]

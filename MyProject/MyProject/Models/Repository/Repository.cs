@@ -34,7 +34,6 @@ namespace MyProject.Models.Repository
         {
             pc.Entry(obj).State = EntityState.Modified;
         }
-
         public void Delete(object EmployeeID)
         {
             T getModel = dbset.Find(EmployeeID);
