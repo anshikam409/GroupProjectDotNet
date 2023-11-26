@@ -4,11 +4,59 @@
     ViewBag.Title = "EmployeeIndex";
 }
 
+<style>
+    body {
+        background-color: #040D12;
+        color: #93B1A6;
+        padding: 20px; /* Add padding to the body for better visual appeal */
+    }
+
+    h2 {
+        color: #5C8374;
+        font-size: 2em; /* Increase the font size of h2 */
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    table {
+        background-color: #040D12;
+        color: #93B1A6;
+        width: 100%; /* Make the table full-width */
+        margin-bottom: 20px; /* Add some space below the table */
+    }
+
+    th {
+        background-color: #183D3D;
+        color: #FFFFFF; /* Brighter text color for th */
+        font-size: 1.2em; /* Increase the font size of th */
+        padding: 15px; /* Add padding to th for better spacing */
+    }
+
+    td {
+        border: 1px solid #183D3D;
+        padding: 10px; /* Add padding to td for better spacing */
+        color: #FFFFFF; /* Brighter text color for td */
+    }
+
+    a {
+        color: #5C8374;
+        margin-right: 10px;
+        font-size: 1.2em; /* Increase the font size of links */
+    }
+
+        a:hover {
+            color: #93B1A6;
+        }
+</style>
+
 <h2>EmployeeIndex</h2>
 
 <p>
     @Html.ActionLink("Create New", "EmployeeCreate")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -23,23 +71,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employeename)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Designation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EmployeeEdit", new { id=item.EmpID }) |
-            @Html.ActionLink("Details", "EmployeeDisplay", new { id=item.EmpID }) |
-            @Html.ActionLink("Delete", "EmployeeDelete", new { id=item.EmpID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employeename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EmployeeEdit", new { id = item.EmpID }) |
+                @Html.ActionLink("Details", "EmployeeDisplay", new { id = item.EmpID }) |
+                @Html.ActionLink("Delete", "EmployeeDelete", new { id = item.EmpID })
+            </td>
+        </tr>
+    }
 
 </table>

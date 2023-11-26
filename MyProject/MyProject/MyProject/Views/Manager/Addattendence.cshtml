@@ -6,12 +6,13 @@
 
 <style>
     body {
-        background-color: #f8f9fa;
+        background-color: #060606;
         font-family: 'Arial', sans-serif;
+        color: #93B1A6;
     }
 
     .container {
-        background-color: #ffffff;
+        background-color: #0e0e0e;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,14 +20,14 @@
     }
 
     h1, h2 {
-        color: #007bff;
+        color: #5C8374;
         text-align: center;
     }
 
     .alert-success {
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-        color: #155724;
+        background-color: #0e0e0e;
+        border-color: #0e0e0e;
+        color: #5C8374;
     }
 
     .form-group {
@@ -35,7 +36,7 @@
 
     label {
         font-weight: bold;
-        color: #007bff;
+        color: #5C8374;
     }
 
     input[type="text"],
@@ -47,9 +48,12 @@
         margin-top: 5px;
         margin-bottom: 15px;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: 1px solid #93B1A6;
         box-sizing: border-box;
         border-radius: 5px;
+        background-color: #060606;
+        color: #93B1A6;
+        font-size: 16px;
     }
 
     input[type="submit"],
@@ -62,8 +66,8 @@
     }
 
     input[type="submit"] {
-        background-color: #28a745;
-        color: #fff;
+        background-color: #5C8374;
+        color: #060606;
     }
 
     .btn-secondary {
@@ -72,11 +76,17 @@
     }
 
     .form-container {
-        background-color: #f2f2f2;
+        background-color: #060606;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin-top: 20px;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 </style>
 
@@ -85,16 +95,18 @@
 @if (TempData["SuccessMessage"] != null)
 {
     <div class="alert alert-success">
-        @TempData["SuccessMessage"].
+        @TempData["SuccessMessage"]
     </div>
 }
 
 <div class="container mt-5">
+    <a href="@Url.Action("ManagerDashboard", "Project")" class="back-button">Back</a>
+
     <div class="form-container">
         <h2>Create Timesheet</h2>
 
         <!-- Form to create a new timesheet -->
-        @using (Html.BeginForm())
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { autocomplete = "off" }))
         {
             @Html.AntiForgeryToken()
 
@@ -138,5 +150,4 @@
             </div>
         }
     </div>
-
 </div>

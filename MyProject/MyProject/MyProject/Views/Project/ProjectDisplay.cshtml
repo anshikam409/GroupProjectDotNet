@@ -4,6 +4,60 @@
     ViewBag.Title = "ProjectDisplay";
 }
 
+<style>
+    body {
+        background-color: #040D12; /* Dark background color */
+        color: #93B1A6; /* Light text color */
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Start from the top */
+        min-height: 100vh;
+    }
+
+    h2 {
+        color: #5C8374; /* Greenish text color */
+        font-size: 3em; /* Larger font size */
+        margin-bottom: 20px;
+    }
+
+    .dl-horizontal {
+        background-color: #040D12; /* Dark background color for the details section */
+        color: #93B1A6; /* Light text color */
+        border: 1px solid #183D3D; /* Border color */
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 20px;
+    }
+
+    dt {
+        color: #5C8374; /* Greenish text color for labels */
+        font-weight: bold;
+        font-size: 1.2em; /* Larger font size for labels */
+    }
+
+    dd {
+        margin-left: 0;
+        margin-bottom: 10px;
+        font-size: 1.2em; /* Larger font size for details */
+    }
+
+    .action-links {
+        margin-top: 20px;
+    }
+
+    a {
+        color: #5C8374; /* Greenish text color for links */
+        margin-right: 15px;
+        font-size: 1.2em; /* Larger font size for links */
+    }
+
+        a:hover {
+            color: #93B1A6; /* Lighter color on hover */
+        }
+</style>
+
 <h2>ProjectDisplay</h2>
 
 <div>
@@ -17,10 +71,10 @@
         <dd>
             @Html.DisplayFor(model => model.ProjectName)
         </dd>
-
     </dl>
 </div>
-<p>
+
+<div class="action-links">
     @Html.ActionLink("Edit", "ProjectEdit", new { id = Model.ProjectID }) |
     @Html.ActionLink("Back to List", "ProjectIndex")
-</p>
+</div>

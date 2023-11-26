@@ -4,92 +4,187 @@
     ViewBag.Title = "ApplyLeave";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="form-group">
-        @Html.LabelFor(mode => Model.ManagerId)
-        @Html.TextBoxFor(model => model.ManagerId)
-        @Html.ValidationMessageFor(model => model.ManagerId, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.LeaveType)
-        @Html.DropDownListFor(model => model.LeaveType, GetLeaveTypes(), "Select Leave Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.FromDate)
-        @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ToDate)
-        @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(model => model.ToDate, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DaysOfLeave)
-        @Html.TextBoxFor(model => model.DaysOfLeave, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.DaysOfLeave, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Session)
-        @Html.DropDownListFor(model => model.Session, GetSessions(), "Select Session", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ContactAddress)
-        @Html.TextBoxFor(model => model.ContactAddress, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ContactAddress, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ContactNumber)
-        @Html.TextBoxFor(model => model.ContactNumber, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Reason)
-        @Html.TextAreaFor(model => model.Reason, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Reason, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Submit" class="btn btn-primary" />
-    </div>}
-
-@functions { private SelectList GetLeaveTypes()
-    {
-        var leaveTypes = new List<string>
-{
-            "Adoption Leave",
-            "Bereavement Leave",
-            "Casual / Sick Leave",
-            "LOP",
-            "Maternity Leave",
-            "Miscarriage Leave",
-            "Privilege Leave"
-        };
-
-        return new SelectList(leaveTypes);
+<style>
+    body {
+        background-color: #060606;
+        font-family: 'Arial', sans-serif;
+        color: #93B1A6;
     }
 
-    private SelectList GetSessions()
-    {
-        var sessions = new List<string>
-{
-            "Full Day",
-            "Half Day / First Half",
-            "Half Day / Second Half"
-        };
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #183D3D;
+        color: #93B1A6;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
 
-        return new SelectList(sessions);
-    } }
+    h2 {
+        color: #5C8374;
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #5C8374;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        background-color: #040D12;
+        color: #93B1A6;
+        border: 1px solid #93B1A6;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #5C8374;
+        color: #040D12;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #93B1A6;
+        }
+
+    .text-danger {
+        color: #FF6363;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #5C8374;
+        color: #040D12;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .back-button:hover {
+            background-color: #93B1A6;
+        }
+</style>
+
+<a href="@Url.Action("ManagerDashboard", "Project")" class="back-button">Back</a>
+
+<div class="form-container">
+    <h2>Apply Leave</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ManagerId)
+            @Html.TextBoxFor(model => model.ManagerId)
+            @Html.ValidationMessageFor(model => model.ManagerId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LeaveType)
+            @Html.DropDownListFor(model => model.LeaveType, GetLeaveTypes(), "Select Leave Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FromDate)
+            @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ToDate)
+            @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.ToDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DaysOfLeave)
+            @Html.TextBoxFor(model => model.DaysOfLeave, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DaysOfLeave, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Session)
+            @Html.DropDownListFor(model => model.Session, GetSessions(), "Select Session", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactAddress)
+            @Html.TextBoxFor(model => model.ContactAddress, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ContactAddress, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactNumber)
+            @Html.TextBoxFor(model => model.ContactNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Reason)
+            @Html.TextAreaFor(model => model.Reason, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Reason, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    }
+
+    @functions {
+        private SelectList GetLeaveTypes()
+        {
+            var leaveTypes = new List<string>
+            {
+                "Adoption Leave",
+                "Bereavement Leave",
+                "Casual / Sick Leave",
+                "LOP",
+                "Maternity Leave",
+                "Miscarriage Leave",
+                "Privilege Leave"
+            };
+
+            return new SelectList(leaveTypes);
+        }
+
+        private SelectList GetSessions()
+        {
+            var sessions = new List<string>
+            {
+                "Full Day",
+                "Half Day / First Half",
+                "Half Day / Second Half"
+            };
+
+            return new SelectList(sessions);
+        }
+    }
+</div>
