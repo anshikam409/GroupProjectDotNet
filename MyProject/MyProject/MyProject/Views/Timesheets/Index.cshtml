@@ -1,39 +1,64 @@
-﻿﻿@model IEnumerable<MyProject.Models.Timesheet>
+﻿@model IEnumerable<MyProject.Models.Timesheet>
 
 <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #040D12; /* Dark background color */
+        color: #93B1A6; /* Light text color */
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+    }
+
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        background-color: #183D3D; /* Darker background color */
+        color: #93B1A6; /* Light text color */
     }
 
     th, td {
-        border: 1px solid #ddd;
+        border: 1px solid #93B1A6; /* Light border color */
         padding: 8px;
         text-align: left;
     }
 
     th {
-        background-color: #f2f2f2;
+        background-color: #5C8374; /* Greenish background color for headers */
+        color: #040D12; /* Dark text color for headers */
     }
 
     .action-links {
         text-decoration: none;
         margin-right: 10px;
-        color: #333;
+        color: #93B1A6; /* Light text color for links */
     }
+
+        .action-links:hover {
+            color: #5C8374; /* Greenish text color on hover */
+        }
 
     .create-link {
         display: block;
         margin-top: 20px;
         margin-bottom: 20px;
         text-decoration: none;
-        background-color: #4caf50;
-        color: white;
+        background-color: #4caf50; /* Green button color */
+        color: #040D12; /* Dark text color for the button */
         padding: 10px;
         border-radius: 5px;
         font-weight: bold;
+        text-align: center;
     }
+
+        .create-link:hover {
+            background-color: #183D3D; /* Darker button color on hover */
+            color: #93B1A6; /* Light text color on hover */
+        }
 </style>
 
 <!-- Display timesheets in a styled table -->
