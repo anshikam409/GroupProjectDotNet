@@ -90,21 +90,23 @@
         <tbody>
             @foreach (var leaveRequest in Model)
             {
-                <tr>
-                    <td>@leaveRequest.LeaveType</td>
-                    <td>@leaveRequest.FromDate.ToShortDateString()</td>
-                    <td>@leaveRequest.ToDate.ToShortDateString()</td>
-                    <td>@leaveRequest.DaysOfLeave</td>
-                    <td>@leaveRequest.Reason</td>
-                    <td>
-                        <div class="btn-container">
-                            <a href="@Url.Action("acceptleave", "Leave", new { leaveRequestId = leaveRequest.Id })" class="btn btn-success btn-lg action-button" target="_blank">
-                                Accept
-                            </a>
-                            @Html.ActionLink("Reject", "RejectLeave", new { leaveRequestId = leaveRequest.Id }, new { @class = "btn btn-reject" })
-                        </div>
-                    </td>
-                </tr>
+            <tr>
+                <td>@leaveRequest.LeaveType</td>
+                <td>@leaveRequest.FromDate.ToShortDateString()</td>
+                <td>@leaveRequest.ToDate.ToShortDateString()</td>
+                <td>@leaveRequest.DaysOfLeave</td>
+                <td>@leaveRequest.Reason</td>
+                <td id="actionCell_@leaveRequest.Id">
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-success btn-lg action-button" onclick="acceptLeave(@leaveRequest.Id)">
+                            Accept
+                        </a>
+                        <button class="btn btn-reject btn-lg action-button" onclick="rejectLeave(@leaveRequest.Id)">
+                            Reject
+                        </button>
+                    </div>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -113,3 +115,31 @@
 <a href="@Url.Action("YourPreviousAction", "YourController")" class="btn btn-primary btn-lg action-button">
     Back
 </a>
+<script>
+    function acceptLeave(leaveRequestId) {
+        // Make an AJAX request to the server to update the leave status
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/Leave/AcceptLeave/" + leaveRequestId, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Update the text in the "Action" column to "Accepted"
+                var actionCell = document.getElementById("actionCell_" + leaveRequestId);
+                actionCell.innerHTML = "Accepted";
+            } else {
+                // Handle error
+                alert('Error accepting leave.');
+            }
+        };
+
+        xhr.send();
+    }
+
+        function rejectLeave(leaveRequestId) {
+        // Update the text in the "Action" column to "Rejected"
+        var actionCell = document.getElementById("actionCell_" + leaveRequestId);
+        actionCell.innerHTML = "Rejected";
+    }
+
+</script>
