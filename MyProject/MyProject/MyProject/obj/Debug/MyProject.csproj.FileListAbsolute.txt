@@ -912,6 +912,12 @@ D:\sunclone\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject
 D:\sunclone\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.CopyComplete
 D:\sunclone\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.dll
 D:\sunclone\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.pdb
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\NUnit3.TestAdapter.dll
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\NUnit3.TestAdapter.pdb
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\nunit.engine.dll
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\nunit.engine.api.dll
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\nunit.engine.core.dll
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\testcentric.engine.metadata.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\MyProject.dll.config
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\MyProject.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\MyProject.pdb
@@ -970,6 +976,7 @@ D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\EntityFramewo
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Microsoft.Web.Infrastructure.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Newtonsoft.Json.dll
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\nunit.framework.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Helpers.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Mvc.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Optimization.dll
@@ -980,6 +987,7 @@ D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.We
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\WebGrease.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\EntityFramework.xml
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\EntityFramework.SqlServer.xml
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\nunit.framework.xml
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Helpers.xml
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Mvc.xml
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.Optimization.xml
@@ -990,7 +998,6 @@ D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\System.Web.We
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Newtonsoft.Json.xml
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Antlr3.Runtime.pdb
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.AssemblyReference.cache
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.CoreCompileInputs.cache
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.CopyComplete
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.dll
