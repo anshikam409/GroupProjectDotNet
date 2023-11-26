@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h2, h3 {
+            color: #3498db;
+        }
+
+        .contact-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        address {
+            font-style: normal;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #3498db;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: #2980b9;
+            }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+            .contact-info p {
+                margin-bottom: 5px;
+            }
+
+        .team-members {
+            margin-top: 30px;
+        }
+
+        .team-member {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container contact-container">
+        <h2>@ViewBag.Title</h2>
+        <h3>@ViewBag.Message</h3>
+
+        <address>
+            <strong>Support Email:</strong> <a href="mailto:support@myproject.com">support@myattendence&leaveproject.com</a><br />
+            <strong>Marketing Email:</strong> <a href="mailto:marketing@myproject.com">marketingproject@myproject.com</a>
+        </address>
+
+        <div class="contact-info">
+            <h3>For any inquiries or assistance:</h3>
+            <p>Email: <a href="mailto:info@myproject.com">info@myproject.com</a></p>
+            <p>Phone: +91 8675455621</p>
+        </div>
+
+        <div class="team-members">
+            <h3>Our Team</h3>
+            <div class="team-member">
+                <p>Anshika: <a href="mailto:anshika@myproject.com">anshika@myproject.com</a></p>
+            </div>
+            <div class="team-member">
+                <p>Nived: <a href="mailto:nived@myproject.com">nived@myproject.com</a></p>
+            </div>
+            <div class="team-member">
+                <p>Amarnath: <a href="mailto:amarnath@myproject.com">amarnath@myproject.com</a></p>
+            </div>
+            <div class="team-member">
+                <p>Nayana: <a href="mailto:nayana@myproject.com">nayana@myproject.com</a></p>
+            </div>
+            <div class="team-member">
+                <p>Meghana: <a href="mailto:meghana@myproject.com">meghana@myproject.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
