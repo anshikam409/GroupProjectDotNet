@@ -1002,3 +1002,4 @@ D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProje
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.CopyComplete
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.dll
 D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.pdb
+D:\Repository\GroupProjectDotNet\MyProject\MyProject\MyProject\obj\Debug\MyProject.csproj.AssemblyReference.cache
